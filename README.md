@@ -72,7 +72,7 @@ DIVIDE(([Total Vendas] - [Total Vendas Mês Anterior]), [Total Vendas Mês Anter
 ## 📊 Visual do Painel
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/LucasBorges21/bi_eventos_dashboard/main/imagens/dash1.png" width="850px" alt="Dashboard Power BI - Análise Comercial de Eventos">
+  <img src="https://github.com/LucasBorges21/bi_eventos_dashboard/blob/af8c6eec37df036c53ed592198b041aabe1b2069/imagens/dash1.png" width="850px" alt="Dashboard Power BI - Análise Comercial de Eventos">
 </p>
 
 O painel apresenta **indicadores de desempenho**, **gráficos de evolução temporal**, **distribuição de vendas por evento e vendedor**, além de um **overview financeiro consolidado**.  
