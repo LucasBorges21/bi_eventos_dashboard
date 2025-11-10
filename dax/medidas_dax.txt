@@ -1,0 +1,78 @@
+// ============================================================================
+// 🧱 Medidas Base
+// ============================================================================
+Total Vendas = 
+SUM(fato_vendas[valor_total])
+
+Qtd Produtos Vendidos = 
+SUM(fato_vendas[quantidade])
+
+Qtd Vendas = COUNTROWS(dim_pedidos)
+
+Meta % Recebido = 0.9
+
+// ============================================================================
+// 💳 Receitas por Status
+// ============================================================================
+Receita Confirmada = 
+CALCULATE(
+    [Total Vendas],
+    FILTER(
+        fato_vendas,
+        fato_vendas[status_pagamento] = "confirmado"
+))
+
+Receita_Pendente = 
+CALCULATE(
+    [Total Vendas],
+    FILTER(
+        fato_vendas,
+        fato_vendas[status_pagamento] in {"estornado", "pendente"}
+))
+
+// ============================================================================
+// ⏱️ Inteligência de Tempo
+// ============================================================================
+Receita Mensal = [Total Vendas]
+// Organização e uso para visuais com datas
+
+Receita Mes Anterior = 
+CALCULATE(
+    [Total Vendas],
+    DATEADD(
+        'dim_calendário'[Date],
+        -1,
+        MONTH
+    )
+)
+
+Receita YTD = 
+TOTALYTD(
+    [Total Vendas],
+    'dim_calendário'[Date]
+)
+
+// ============================================================================
+// 📊 Indicadores / Razões
+// ============================================================================
+% Recebido = 
+DIVIDE(
+    [Receita Confirmada],
+    [Total Vendas],
+    0
+)
+
+Gap % Recebido = [Meta % Recebido] - [% Recebido]
+
+Ticket Médio = 
+DIVIDE(
+    [Total Vendas],
+    [Qtd Vendas],
+    0
+)
+
+Variação % M/M = 
+DIVIDE(
+    ([Receita Mensal] - [Receita Mes Anterior] ),
+    [Receita Mes Anterior]
+)

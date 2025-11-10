@@ -1,0 +1,6 @@
+-- DIM_CALENDARIO (Tabela Auxiliar criada no Power BI para auxiliar nos cálculos com tempo)
+
+dim_calendário = CALENDAR(
+    MIN(dim_pedidos[data_pedido]),
+    MAX(dim_pedidos[data_pedido])
+)
