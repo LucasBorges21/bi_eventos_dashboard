@@ -42,16 +42,17 @@ BI_EVENTOS_DASHBOARD/
 │
 ├─ .gitignore
 └─ README.md
+```
 
 Cada diretório contém:  
 - **/data** – tabelas fato e dimensões usadas no Power BI  
 - **/dax** – código da tabela calendário e medidas DAX personalizadas  
 - **/imagens** – capturas de tela do painel final  
-- **/relatorios** – arquivo `.pbix` do relatório principal  
+- **/relatorios** – arquivo `.pbix` do relatório principal
 
 ---
 
-## 🧠 Modelagem e Medidas DAX
+# 🧠 Modelagem e Medidas DAX
 
 O modelo segue uma arquitetura estrela, com tabelas de dimensão (`DIM_Eventos`, `DIM_Clientes`, `DIM_Pedidos`, `DIM_Vendedores`, `DIM_Calendário`) e uma tabela fato (`Fato_Vendas`).  
 A tabela calendário foi criada diretamente no Power BI para habilitar funções de tempo como `TOTALYTD`, `DATEADD` e comparações mensais e anuais.
@@ -72,7 +73,7 @@ DIVIDE(([Total Vendas] - [Total Vendas Mês Anterior]), [Total Vendas Mês Anter
 ## 📊 Visual do Painel
 
 <p align="center">
-  <img src="https://github.com/LucasBorges21/bi_eventos_dashboard/blob/main/imagens/dash1.png" width="850px" alt="Dashboard Power BI - Análise Comercial de Eventos">
+  <img src="imagens/dash1.png" width="850px" alt="Dashboard Power BI - Análise Comercial de Eventos">
 </p>
 
 O painel apresenta **indicadores de desempenho**, **gráficos de evolução temporal**, **distribuição de vendas por evento e vendedor**, além de um **overview financeiro consolidado**.  
